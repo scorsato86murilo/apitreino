@@ -1,0 +1,12 @@
+# Ignorar a pasta .idea da IDE
+.idea/
+
+# Ignorar arquivos de sistema no Windows
+Thumbs.db
+Desktop.ini
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos de dependências
+node_modules/
