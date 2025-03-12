@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>index</title>
-</head>
-<body>
-index
-</body>
-</html>
+{% extends 'base_index.html' %}
+{% load static %}
+
+{% block titulo %}
+    {{ nome_empresa.nome }} - Página Inicial
+{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<h1>ola murilo </h1>
+{% endblock %}
