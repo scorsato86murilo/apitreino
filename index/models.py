@@ -11,11 +11,14 @@ class Index(models.Model):
     def __str__(self):
         return self.cidade_estado
 
+
 class Avisos(models.Model):
     mensagem = models.TextField()
+    data_criacao = models.DateTimeField(auto_now_add=True)  # Data de criação da mensagem
 
     def __str__(self):
         return self.mensagem
+
 
 class Cadastro(models.Model):
     nome = models.CharField(max_length=100)
@@ -23,6 +26,7 @@ class Cadastro(models.Model):
     telefone = models.CharField(max_length=100)
     rua = models.CharField(max_length=100)
     numero = models.CharField(max_length=100)
+    data_criacao = models.DateTimeField(auto_now_add=True)  # Data de criação do cadastro
 
     def __str__(self):
         return self.nome
