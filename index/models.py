@@ -1,4 +1,8 @@
+from datetime import timezone
+
 from django.db import models
+from django.core.validators import RegexValidator
+
 
 
 class Index(models.Model):
@@ -14,8 +18,6 @@ class Index(models.Model):
 
 class Avisos(models.Model):
     mensagem = models.TextField()
-    data_criacao = models.DateTimeField(auto_now_add=True)  # Data de criação da mensagem
-
     def __str__(self):
         return self.mensagem
 
@@ -26,7 +28,19 @@ class Cadastro(models.Model):
     telefone = models.CharField(max_length=100)
     rua = models.CharField(max_length=100)
     numero = models.CharField(max_length=100)
-    data_criacao = models.DateTimeField(auto_now_add=True)  # Data de criação do cadastro
 
     def __str__(self):
         return self.nome
+
+class Video(models.Model):
+    video_link = models.URLField(
+        validators=[RegexValidator(
+            regex=r'^https://(www\.)?youtube\.com/.*$',
+            message='A URL deve ser do YouTube.'
+        )]
+    )
+    titulo = models.CharField(max_length=100, default='Assista ao vídeo!')
+    mensagem = models.CharField(max_length=100, default='Dúvidas? Entre em contato')
+
+    def __str__(self):
+        return self.titulo
