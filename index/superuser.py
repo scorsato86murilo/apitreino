@@ -1,9 +1,8 @@
-# index/superuser.py
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 
 def create_superuser():
-    if not User.objects.filter(username='admin').exists():
+    if not User.objects.filter(username='adminadmin').exists():
         try:
             # Cria o superusuário
             User.objects.create_superuser(

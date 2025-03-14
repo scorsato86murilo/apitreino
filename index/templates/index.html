@@ -4,9 +4,10 @@
 {% block titulo %}
     ETA {{ index.cidade_estado }}
 {% endblock %}
-
 {% block head %}
     <!-- Aqui você pode adicionar algum conteúdo específico para o cabeçalho -->
+  <link rel="stylesheet" href="{% static 'index/css/index.css' %}">
+
 {% endblock %}
 
 {% block body %}
@@ -14,14 +15,31 @@
     <div class="row">
       <!-- Primeira parte da tela (50%) -->
       <div class="col-md-6" style="background-color: aliceblue;">
-        <h5>Estação de tratamento de água</h5>
-        <p>Conteúdo da primeira parte.</p>
+        <br>
+        {% if video %}
+          <div class="video-container">
+            {% with video_id=video.video_link|slice:"32:43" %}
+              <iframe src="https://www.youtube.com/embed/{{ video_id }}?start={{ video.video_link|slice:"46:49" }}"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen>
+              </iframe>
+            {% endwith %}
+          </div>
+        {% else %}
+          <p>Nenhum vídeo disponível.</p>
+        {% endif %}
+        <h5>{{video.titulo}}</h5>
+        <p>{{video.mensagem}}</p>
+        <hr>
+
+
       </div>
 
       <!-- Segunda parte da tela (50%) -->
       <div class="col-md-6" style="background-color: ghostwhite;">
-        <h5>Parte 2</h5>
-        <p>Conteúdo da segunda parte.</p>
+        <br>
+        <h1>Parte 2</h1>
       </div>
     </div>
   </div>
