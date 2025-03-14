@@ -13,6 +13,9 @@ class Index(models.Model):
         return self.cidade_estado
 
 
+
+
+
 class Cadastro(models.Model):
     nome = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)

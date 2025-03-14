@@ -4,13 +4,16 @@
 {% block titulo %}
     ETA {{ index.cidade_estado }}
 {% endblock %}
-{% block head %}
-    <!-- Aqui você pode adicionar algum conteúdo específico para o cabeçalho -->
-  <link rel="stylesheet" href="{% static 'index/css/index.css' %}">
 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'index/css/index.css' %}">
 {% endblock %}
 
 {% block body %}
+        <div class="logo">
+          <img src="{{ index.img.url }}" alt="Logo">
+
+        </div>
   <div class="container-fluid">
     <div class="row">
       <!-- Primeira parte da tela (50%) -->
@@ -29,16 +32,16 @@
         {% else %}
           <p>Nenhum vídeo disponível.</p>
         {% endif %}
-        <h5>{{video.titulo}}</h5>
-        <p>{{video.mensagem}}</p>
+        <h5>{{ video.titulo }}</h5>
+        <p>{{ video.mensagem }}</p>
         <hr>
-
-
       </div>
 
       <!-- Segunda parte da tela (50%) -->
-      <div class="col-md-6" style="background-color: ghostwhite;">
+      <div class="col-md-6" style="background-color: #ffffff;">
         <br>
+
+
         <h1>Parte 2</h1>
       </div>
     </div>

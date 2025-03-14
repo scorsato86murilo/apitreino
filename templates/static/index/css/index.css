@@ -16,7 +16,19 @@
   height: 100%;
 }
 
-h1{
-
-    color: red;
+/* Container da logo */
+.logo {
+    display: flex;            /* Ativa o Flexbox */
+    justify-content: center;  /* Centraliza a logo na horizontal */
+    align-items: center;      /* Centraliza a logo na vertical */
+    width: 100%;              /* Garantir que o container ocupe toda a largura disponível */
+    height: 100%;             /* Garantir que o container ocupe toda a altura disponível */
 }
+
+/* Estilo da logo */
+.logo img {
+    max-width: 100%;         /* A logo vai ocupar no máximo 100% da largura do container */
+    height: auto;            /* A altura será ajustada automaticamente para manter a proporção */
+}
+
+
